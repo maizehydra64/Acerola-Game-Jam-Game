@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://idlao7l6fubb"
+path="res://.godot/imported/proto2_hall_deadend.obj-ed9877d5acd7db1789dd848097282aba.mesh"
+
+[deps]
+
+files=["res://.godot/imported/proto2_hall_deadend.obj-ed9877d5acd7db1789dd848097282aba.mesh"]
+
+source_file="res://blender_files/proto2_hall_deadend.obj"
+dest_files=["res://.godot/imported/proto2_hall_deadend.obj-ed9877d5acd7db1789dd848097282aba.mesh", "res://.godot/imported/proto2_hall_deadend.obj-ed9877d5acd7db1789dd848097282aba.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

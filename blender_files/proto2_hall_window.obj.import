@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c7gmard1aq3y7"
+path="res://.godot/imported/proto2_hall_window.obj-e0fa1981aeba4b52dac7b4fdb94a1278.mesh"
+
+[deps]
+
+files=["res://.godot/imported/proto2_hall_window.obj-e0fa1981aeba4b52dac7b4fdb94a1278.mesh"]
+
+source_file="res://blender_files/proto2_hall_window.obj"
+dest_files=["res://.godot/imported/proto2_hall_window.obj-e0fa1981aeba4b52dac7b4fdb94a1278.mesh", "res://.godot/imported/proto2_hall_window.obj-e0fa1981aeba4b52dac7b4fdb94a1278.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

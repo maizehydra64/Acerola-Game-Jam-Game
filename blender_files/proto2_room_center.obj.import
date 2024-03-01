@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ci30v0lyp8dgt"
+path="res://.godot/imported/proto2_room_center.obj-2c2b370b05e0d7346ead94426ce4dcbd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/proto2_room_center.obj-2c2b370b05e0d7346ead94426ce4dcbd.mesh"]
+
+source_file="res://blender_files/proto2_room_center.obj"
+dest_files=["res://.godot/imported/proto2_room_center.obj-2c2b370b05e0d7346ead94426ce4dcbd.mesh", "res://.godot/imported/proto2_room_center.obj-2c2b370b05e0d7346ead94426ce4dcbd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

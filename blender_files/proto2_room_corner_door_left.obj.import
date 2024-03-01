@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cqoxft13qe65a"
+path="res://.godot/imported/proto2_room_corner_door_left.obj-f8cd960b52153973a346ab71ef085b08.mesh"
+
+[deps]
+
+files=["res://.godot/imported/proto2_room_corner_door_left.obj-f8cd960b52153973a346ab71ef085b08.mesh"]
+
+source_file="res://blender_files/proto2_room_corner_door_left.obj"
+dest_files=["res://.godot/imported/proto2_room_corner_door_left.obj-f8cd960b52153973a346ab71ef085b08.mesh", "res://.godot/imported/proto2_room_corner_door_left.obj-f8cd960b52153973a346ab71ef085b08.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
