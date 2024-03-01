@@ -7,12 +7,12 @@ data = PackedVector3Array(1, 0, 1, 0.5, 0, 1, 1, 0, -1.0001, 1, 0, -1.0001, 0.5,
 
 [node name="Node3D" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Proto_Hall_One" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_0phlk")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="MeshInstance3D"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Proto_Hall_One"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Proto_Hall_One/StaticBody3D2"]
 shape = SubResource("ConcavePolygonShape3D_4cxe4")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]

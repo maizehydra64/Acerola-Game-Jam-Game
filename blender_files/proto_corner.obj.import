@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://e8coy8dwd8uw"
+path="res://.godot/imported/proto_corner.obj-7ebabab34cb939267a91849656b0fc36.mesh"
+
+[deps]
+
+files=["res://.godot/imported/proto_corner.obj-7ebabab34cb939267a91849656b0fc36.mesh"]
+
+source_file="res://blender_files/proto_corner.obj"
+dest_files=["res://.godot/imported/proto_corner.obj-7ebabab34cb939267a91849656b0fc36.mesh", "res://.godot/imported/proto_corner.obj-7ebabab34cb939267a91849656b0fc36.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
