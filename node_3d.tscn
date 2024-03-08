@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://53y1hskf83pn"]
+[gd_scene load_steps=12 format=3 uid="uid://53y1hskf83pn"]
 
 [ext_resource type="Script" path="res://Controller.gd" id="1_d3yvg"]
 [ext_resource type="Script" path="res://PlayerCharacter.gd" id="2_omht5"]
 [ext_resource type="MeshLibrary" uid="uid://bwmnp6doj0tfy" path="res://Proto2_meshlib.tres" id="2_who3o"]
+[ext_resource type="Shader" path="res://StatBar.gdshader" id="4_r4cwh"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_d01l4"]
 height = 1.85
@@ -21,6 +22,18 @@ sky_material = SubResource("ProceduralSkyMaterial_j16xa")
 background_mode = 2
 sky = SubResource("Sky_lrlu5")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wwg0f"]
+shader = ExtResource("4_r4cwh")
+shader_parameter/stamina = 20.0
+shader_parameter/bar_color = Color(0.898039, 0, 0, 1)
+shader_parameter/back_color = Color(0.12549, 0.286275, 0.329412, 1)
+shader_parameter/flip_dir = true
+shader_parameter/bar_opacity = 1.0
+shader_parameter/back_opacity = 0.25
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bpucs"]
+size = Vector2(10, 10)
+
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_d3yvg")
 
@@ -32,22 +45,23 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="PlayerCharacter" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.8, 0)
 disable_mode = 1
 script = ExtResource("2_omht5")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerCharacter"]
 mesh = SubResource("CylinderMesh_d01l4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCharacter"]
 shape = SubResource("CylinderShape3D_en8uv")
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+[node name="Camera3D" type="Camera3D" parent="PlayerCharacter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 current = true
 
-[node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D/Camera3D"]
+[node name="SpotLight3D" type="SpotLight3D" parent="PlayerCharacter/Camera3D"]
+shadow_enabled = true
 spot_range = 20.0
 spot_angle = 30.0
 
@@ -55,7 +69,73 @@ spot_angle = 30.0
 environment = SubResource("Environment_523uo")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -0.866025, 0.5, 0, -0.5, -0.866025, 0, 0, 0)
 shadow_enabled = true
+shadow_reverse_cull_face = true
 
-[connection signal="paused" from="." to="CharacterBody3D" method="_on_node_3d_paused"]
+[node name="Gui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="In-game Gui" type="Control" parent="Gui"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StaminaBar" type="TextureRect" parent="Gui/In-game Gui"]
+material = SubResource("ShaderMaterial_wwg0f")
+layout_mode = 0
+offset_left = 946.0
+offset_top = 569.0
+offset_right = 1129.0
+offset_bottom = 614.0
+texture = SubResource("PlaceholderTexture2D_bpucs")
+
+[node name="Pause Menu" type="Control" parent="Gui"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Back Button" type="Button" parent="Gui/Pause Menu"]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 31.0
+offset_right = 252.0
+offset_bottom = 62.0
+text = "Back
+"
+
+[node name="Control" type="Control" parent="Gui/Pause Menu"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StartButton" type="Button" parent="Gui/Pause Menu/Control"]
+layout_mode = 2
+offset_right = 129.0
+offset_bottom = 31.0
+action_mode = 0
+text = "Return to game"
+
+[node name="OptionsButton" type="Button" parent="Gui/Pause Menu/Control"]
+layout_mode = 2
+offset_top = 35.0
+offset_right = 129.0
+offset_bottom = 66.0
+text = "Settings
+"
+
+[node name="QuitButton" type="Button" parent="Gui/Pause Menu/Control"]
+layout_mode = 2
+offset_top = 70.0
+offset_right = 129.0
+offset_bottom = 101.0
+text = "Exit Level
+"
+
+[connection signal="paused" from="." to="PlayerCharacter" method="_on_node_3d_paused"]

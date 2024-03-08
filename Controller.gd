@@ -15,11 +15,21 @@ func _process(delta):
 func _input(event):
 	var just_paused:bool = false
 	if event.is_action_released("ui_cancel")&& is_paused == false && just_paused == false:
-		paused.emit()
-		is_paused = true
+		pause()
 		just_paused = true
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if event.is_action_released("ui_cancel") && is_paused == true && just_paused==false:
-		paused.emit()
-		is_paused = false
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		unpause()
+		
+func pause():
+	paused.emit()
+	is_paused = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	$"Gui/Pause Menu".visible = true
+	$"Gui/In-game Gui".visible = false
+	
+func unpause():
+	paused.emit()
+	is_paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$"Gui/In-game Gui".visible = true
+	$"Gui/Pause Menu".visible = false
